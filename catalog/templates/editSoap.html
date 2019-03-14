@@ -1,0 +1,46 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+
+<div class="">
+		<div class="mr-sm-2 mb-2 col-sm-8" style="margin: 10px;">
+			<form action="{{ url_for('editSoap',drid=drid,drename=soapdetails.soapname)}}" method="POST">
+				<div class="panel panel-info">
+				  <div class="panel-heading">Edit Soap Details</div>
+				  <div class="panel-body">
+				  	
+					  <div class="form-group">
+					  	<label class="text-primary" for="soapname">Enter Soap Name:</label>
+					    <input type="name" class="form-control" name="soapname" value="{{soapdetails.soapname}}">
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="launchyear">Enter Year Of Launch:</label>
+					    <input type="text" class="form-control" name="launchyear" value="{{soapdetails.launchyear}}">
+					  </div>
+					  
+					  <div class="form-group">
+					  	<label class="text-primary" for="price">Enter  Price:</label>
+					    <input type="text" class="form-control" name="price" value="{{soapdetails.price}}">
+					  </div>
+					  
+					  <div class="form-group">
+					  	<label class="text-primary" for="weight">Enter  weight:</label>
+					    <input type="text" class="form-control" name="weight" value="{{soapdetails.weight}}">
+					  </div>
+					  
+					  <div class="form-group">
+					  	<label class="text-primary" for="rating">Enter Soap ratings:</label>
+					    <input type="text" class="form-control" name="rating" value="{{soapdetails.ratings}}">
+					  </div>
+					  
+					  <div class="form-group">
+					  	<label class="text-primary" for="soaptype">Enter Soap Type:</label>
+					    <input type="text" class="form-control" name="soaptype" value="{{soapdetails.soaptype}}">
+					  </div>					  
+				  </div> 
+				  <div class="panel-footer text-center"><input type="submit" class="btn btn-primary" value="Edit"></div>
+				</div>
+				</form>
+			</div>
+</div>
+{% endblock content %}

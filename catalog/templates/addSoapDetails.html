@@ -1,0 +1,51 @@
+
+
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+
+<div class="">
+		<div class="mr-sm-2 mb-2 col-sm-8" style="margin: 10px;">
+			<form action="{{ url_for('addSoapDetails',drname=drname)}}" method="POST">
+				<div class="panel panel-primary">
+				  <div class="panel-heading bg-success">Add Soap Details</div>
+				  <div class="panel-body">
+				  	
+					  <div class="form-group">
+					  	<label class="text-primary" for="soapname">Enter Soap Name:</label>
+					    <input type="text" class="form-control" name="soapname" placeholder="Enter Soap Name:" pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters and numbers only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="launchyear">Enter Launch Year:</label>
+					    <input type="text" class="form-control" name="launchyear" placeholder="Enter Launch year:" pattern="[A-Za-z0-9 ]{1,}" title="Allow Characters Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="price">Enter Price:</label>
+					    <input type="text" class="form-control" name="price" placeholder="Enter Price:" pattern="[0-9]{2,}" title="Allow numbers Only" required>
+					  </div>
+					   <div class="form-group">
+					  	<label class="text-primary" for="weight">Enter weight:</label>
+					    <input type="text" class="form-control" name="weight" placeholder="Enter weight:" 
+						pattern="[0-9]{2,}" title="Allow numbers Only" required>
+					  </div>
+					  
+					  <div class="form-group">
+					  	<label class="text-primary" for="rating">Enter Soap Ratings:</label>
+					    <input type="text" class="form-control" name="rating" placeholder="Enter Soap Ratings:" pattern="[A-Za-z0-9. ]{1,}" title="Allow both characters and numbers only " required>
+					  </div>
+					 
+					  
+					  <div class="form-group">
+					  	<label class="text-primary" for="soaptype">Enter Soap Type:</label>
+					    <input type="text" class="form-control" name="soaptype" placeholder="Enter Soap type:" pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters and numbers only" required>
+					  </div>
+					  <div class="form-group">
+					    <input type="text" class="form-control " name="SoapCompnaynameid" value="{{ drname }}" readonly>
+					  </div>
+				  </div> 
+				  <div class="panel-footer text-center"><input type="submit" class="btn btn-primary" value="Submit"></div>
+				</div>
+				</form>
+			</div>
+</div>
+{% endblock content %}

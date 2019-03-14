@@ -1,0 +1,22 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+	
+		<div class="">
+			<div class="text-center"><center>
+				<div class="panel panel-primary" style="width: 38rem;">
+					<form action="{{url_for('deleteSoap',drid=drid,drename=soapdetails.soapname)}}" method="POST">
+						<div class="panel-body">
+							<h4 style="color: blue;">Are you sure you want to delete {{soapdetails.name}}</h4>
+						</div>
+						<div class="panel-footer text-center">
+							<input type="submit" class="btn btn-danger" value="Delete" style="margin-right: 10px;">
+						    <button type="button" class="btn btn-warning"><a href="{{url_for('showSoapCompnay',drid=drid)}}">CANCEL</a></button>
+						</div>
+						
+					</form>
+				</div>
+			</center></div>
+		</div>
+{% endblock content %}	
+</div>

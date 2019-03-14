@@ -1,0 +1,67 @@
+<head>
+<title>SoapsCenter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+</head>
+
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+  <!-- {% for dr in drs_son %}
+    <a href="{{ url_for('showSoapCompnay',drid=dr.id)}}">{{dr.name}}</a><br>
+    {% endfor %} -->
+    {% with messages = get_flashed_messages() %}
+	    {% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	    {% endif %}
+	{% endwith %}
+	<center>
+	<div class="text-center">
+		<!-- <h1>Welcome to SoapsCenter</h1> --->
+		<img class="mySlides" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:150px;border-radius:50px" src="http://3.bp.blogspot.com/-V7QoD5Xalhk/VBr7sH_yFhI/AAAAAAAAQzY/irTNk12LZxA/s1600/Kama%2BAyurveda%2BHandmade%2BOrganic%2BSoap%2BIndia.jpg">
+		<img class="mySlides" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:150px;border-radius:50px" src="http://womenskincareandbeauty.com/wp-content/uploads/2018/09/wp-1537025567101..jpg">
+		<img class="mySlides" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:150px;border-radius:50px" src="https://c1.staticflickr.com/5/4037/4670625061_f9e4790b15_b.jpg=1">
+		<img class="mySlides" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:150px;border-radius:50px" src="https://i.pinimg.com/originals/d5/ee/28/d5ee285e17167c1df88da527f8933fb4.jpg">
+		<img class="mySlides" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:150px;border-radius:50px" src="https://www.telegraph.co.uk/content/dam/news/2019/01/05/soap-xlarge_trans_NvBQzQNjv4Bq3vBSBa1x_cuTmy3Iq--lw1VDtXzwzkYkYqNhMRIoVN8.jpg">
+		
+	</div>
+	</center>
+	
+	<!--<div class="w3-content w3-section" style="max-width:500px">
+		<img class="mySlides" src="farcryprimal.jpg" style="width: 750px; height: 400px; margin: 0; padding: 0; margin-top: 50px">
+		<img class="mySlides" src="fallout4.jpg" style="width: 750px; height: 400px; margin: 0; padding: 0; margin-top: 50px">
+		<img class="mySlides" src="callofduty.jpg" style="width: 750px; height: 400px; margin: 0; padding: 0; margin-top: 50px">
+	</div>
+	</div>-->
+
+	<script>
+	var myIndex = 0;
+	carousel();
+
+	function carousel() 
+	{
+	var i;
+	var x = document.getElementsByClassName("mySlides");
+	for (i = 0; i < x.length; i++) 
+	{
+		x[i].style.display = "none";  
+	}
+	myIndex++;
+	if (myIndex > x.length) {myIndex = 1}    
+	x[myIndex-1].style.display = "block";  
+	setTimeout(carousel, 2000); // Change image every 2 seconds
+	}
+	</script>
+
+    
+{% endblock content %}
+</div>

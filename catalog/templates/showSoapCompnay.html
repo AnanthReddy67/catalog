@@ -1,0 +1,50 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	{% endif %}	    
+{% endwith %}
+{% if 'username' in session %}
+<button type="button" class="btn btn-warning" style="margin: 5px 0px 5px 10px;"><a href="{{url_for('addSoapDetails',drname=drs.name)}}" style="text-decoration: none;color:black;"><strong>Add New Soap </a></button>
+
+{% endif %}
+<div class="row" style="margin: 10px;">
+{% for dre in dres %}
+
+	<div class="col-sm-4 text-center">
+		<div class="panel panel-primary">
+			<div class="panel-heading" style="background-color:	
+MIDNIGHTBLUE">
+				<h4 >{{ dre.soapname }}</h4>
+			</div>
+			<div class="panel-body text-center" style="background-color:	
+#ccf5ff">
+				<table>
+					<tr><th>SOAPNAME</th><td>:</td><td><h5>{{ dre.soapname }}</h5></td></tr>
+					<tr><th>LAUNCHYEAR</th><td>:</td><td><h5>{{ dre.launchyear }}</h5></td></tr>
+					<tr><th>PRICE</th><td>:</td><td><h5>{{ dre.price }}</h5></td></tr>
+					<tr><th>WEIGHT</th><td>:</td><td><h5>{{ dre.weight }}</h5></td></tr>
+					<tr><th>RATING</th><td>:</td><td><h5>{{ dre.rating }}</h5></td></tr>
+					<tr><th>SOAPTYPE</th><td>:</td><td><h5>{{ dre.soaptype }}</h5></td></tr>
+				</table>
+			</div>
+			{% if 'username' in session %}
+			<div class="panel-footer"style="background-color:#b3b3b3">
+					<button type="button" class="btn btn-info"><a href="{{ url_for('editSoap',drid=drs.id,drename=dre.soapname) }}"style="text-decoration: none;color:white;">EDIT</a></button>
+					<button type="button" class="btn btn-danger"><a href="{{ url_for('deleteSoap',drid=drs.id,drename=dre.soapname)}}"style="text-decoration: none;color:white;">DELETE</a></button>
+			</div>
+			{% endif %}	
+			
+		</div>
+	</div>
+{% endfor %}
+</div>
+{% endblock content %}
+</div>
